@@ -16,7 +16,7 @@ const usersList = [
         description: 'Me gusta dormir',
         age: '23',
         fav_music: {
-            bands: ['Radiohead', 'The Beatles', 'Pink Floyd'],
+            bands: ['Radiohead', 'Kudai', 'Pink Floyd'],
         },
     },
   
@@ -24,6 +24,7 @@ const usersList = [
 //Selectores
 const card = document.getElementById("card-container");
 const cardImgContainer = document.getElementById("card-img-container");
+
 function createImageElement() {
     const IMAGE_URL = "https://placehold.co/200";
 
@@ -35,7 +36,7 @@ function createImageElement() {
     return imageElement;
 }
 
-//const userImage = createImageElement();
+
 
 function populateCardElements(user) {
     const { user_name, age, description } = user;
@@ -53,7 +54,7 @@ function populateCardElements(user) {
     // Devuelve los elementos
     return { cardTitleElement, cardAgeElement, cardDescElement };
 }
-//const { cardTitleElement, cardAgeElement, cardDescElement } = populateCardElements(usersList);
+
 function renderCard(cardImgContainer, user) {
     
     const userImage = createImageElement();
@@ -61,14 +62,10 @@ function renderCard(cardImgContainer, user) {
     
     cardImgContainer.appendChild(userImage); //Agrega la imagan y la información en el mismo contenedor
     cardImgContainer.append(cardTitleElement, cardAgeElement, cardDescElement);
-    
 
-    
-    //card.appendChild(lineBreak);
 }
 
-// Llama a la función 
-//renderCard(cardImgContainer, cardTitleElement, cardAgeElement, cardDescElement);
+// Llama a la función por cada usuario
 usersList.forEach((user) => {
     renderCard(cardImgContainer, user);
 });
